@@ -4,7 +4,7 @@
 echo '
 <html>
   <head>
-    <title> ORF 401: Lab #3 - PHP - Spring 2019 </title>
+    <title> HandyRoads  </title>
     <script type="text/javascript" src="loadSplashPage.js"></script>
   </head>
   <body onload="loadSplashPage();" bgcolor="white" text="black">
@@ -19,7 +19,7 @@ echo '
   echo '
     <table border="0" width="700" >
       <tr>
-        <td>Join <I>The PickUpPros</I> Community! <br> <a href="newMember.html"><b> Register </b></a></td>
+        <td>Join the <B>HandyRoads</B> Community! <br> <a href="newMember.html"><b> Register </b></a></td>
         <td align="right">Already a Member? Sign In: </td>
         <td> </td>
         <td align="right">

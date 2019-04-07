@@ -1,6 +1,6 @@
 <html>
 	<head>
-    <title> The HandyRides - Member Registration </title>
+    <title> The HandyRoads - Member Registration </title>
     <script type="text/javascript" src="isEmail.js"></script>
     <script type="text/javascript" src="isBlank.js"></script>
     <script type="text/javascript" src="isPassword.js"></script>
@@ -17,32 +17,38 @@
 
       <br /><br /><br />
 
-      <form name="new" action="addMember.php" method="post" onsubmit = "return checkRequired();">
-
-        <p>Please fill out the following fields:</p>
-        <label id = "fname" for="fName"> First Name:</label><input id = "fnameInput" type="text" name="fName" /> <font color = "red" id = "fnamePost"> </font><br />
-        <label id = "lname" for="lName"> Last Name: </label><input id = "lnameInput" type="text" name="lName" /> <font color = "red" id = "lnamePost"> </font> <br />
-        <label id = "email" for="Email"> Email: </label><input id = "emailInput" type="text" name ="Email" /> <font color = "red" id = "emailPost"> </font> <br />
-        <label id = "password" for="Pass"> Password: </label><input id = "passwordInput" type="password" name="Pass" /> <font color = "red" id = "passwordPost"> </font>
-
-        <p>Please enter your trip information: </p>
-        <label for="Origin">Origin:</label><input type="text" name="Origin" /><br />
-        <label for="Destination">Destination:</label><input type="text" name="Destination" /><br />
-        <label for="dDate">Departure Date:</label><input type="date" name="dDate" /><br />
-        <label for="dTime">Departure Time:</label><input type="time" name="dTime" />
-
-        <p>Do you have a car: <p>
-        <input type="radio" name="Hascar" value="Yes" /> <label for="Hascar">Yes</label>
-        <input type="radio" name="Hascar" value="No" /> <label for="Hascar">No</label>
-        <p>If you have a car, how many seats can you offer:</p>
-        <input type="number" name="Seats" />
-        <input type="submit" value="Submit" />
+      <form method = "post" enctype="multipart/form-data">
+        <input type = "file" name = "image" id = "image" />
+        <br /> 
+        <input type = "submit" name = "insert" id = "insert" value= "Insert" >
       </form>
-
       <br />
-
-      <a href="isindexSearch.php"> Return to Homepage </a>
+      <br />
+      <a href="home.php"> Return to Homepage </a>
 
     </center>
   </body>
 </html>
+
+<script>
+$(document).ready(function(){
+  $('#insert').click(function(){
+    var image_name = $('#image').val();
+    if(image_name == '')
+    {
+      alert("Please Select Image");
+      return false;
+    }
+    else 
+    {
+      var extension = $('#image').val().split('.').pop().toLowerCase();
+      if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+      {
+        alert('Valid image types are gif png jpg and jpeg')
+        $('#image').val('') //remove the selected image from image file tag
+        return false;
+      }
+    }
+  });
+});
+</script>
