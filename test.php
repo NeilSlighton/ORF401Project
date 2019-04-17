@@ -3,11 +3,14 @@
  if(isset($_POST["insert"]))  
  {  
       $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      $query = "INSERT INTO tbl_images(name) VALUES ('$file')";  
+      $query = "INSERT INTO tbl_images(name, Longitude, Latitude) VALUES ('$file',43.653225, -79.383186)";  
       if(mysqli_query($connect, $query))  
       {  
            echo '<script>alert("Image Inserted into Database")</script>';  
       }  
+
+
+
  }  
  ?>  
  <!DOCTYPE html>  
@@ -26,6 +29,9 @@
                 <form method="post" enctype="multipart/form-data">  
                      <input type="file" name="image" id="image" />  
                      <br />  
+                     <input type = "number" name = "longitude" id = "longitude" />
+                     <input type = "number" name = "latitude" id = "longitude" />
+
                      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />  
                 </form>  
                 <br />  
