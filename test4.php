@@ -28,14 +28,27 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
+      <body id = "htmlBody" bgcolor="white" text="black">
+          <center>
+
+            <br/> <br />
+
+            
+            <img src ="logo.jpg", align="middle">
+
+            <br /><br /><br />
+
+            <form method = "post" enctype="multipart/form-data">
+              <input type = "file" name = "image" id = "image" />
+              <br /> 
+              <input type = "submit" name = "insert" id = "insert" value= "Insert" >
+            </form>
+            <br />
+            <br />
+            <a href="home.php"> Return to Homepage </a>
+
+          </center>
+        </body>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
