@@ -21,15 +21,12 @@ function setCookie(c_name,value,exdays) {
 
 
 function loadSplashPage(){
-	var flag = getCookie("splashRides");
+	var flag = getCookie("splashRoads");
 	if(flag != "yes"){
-		setCookie("splashRides", "yes", 365)
-      document.getElementById("splashImg").style.visibility = "visible";
-      document.getElementById("splashImg").height = "400";
-      document.getElementById("splashImg").width = "500";
-      document.getElementById("splashHeader").innerText = "Welcome First-Time User!";
-      document.getElementById("splashText").innerText = "Welcome to PickUpPros! Our website allows you to arrange a ride to and from various destinations in the US, click on the 'register' link to get started or search for a destination below!";
-
+		setCookie("splashRoads", "yes", 365)
+      window.load(function(){
+         $('#myModal').modal('show');
+      });
 
 	}
 	
