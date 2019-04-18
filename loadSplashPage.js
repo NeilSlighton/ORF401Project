@@ -24,9 +24,7 @@ function loadSplashPage(){
 	var flag = getCookie("splashRoads");
 	if(flag != "yes"){
 		setCookie("splashRoads", "yes", 365)
-      window.load(function(){
-         $('#myModal').modal('show');
-      });
+      $('#myModal').modal('show');
 
 	}
 	
