@@ -1,0 +1,25 @@
+[03-May-2019 13:59:43 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 23
+[03-May-2019 14:00:59 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 23
+[03-May-2019 15:20:03 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 23
+[03-May-2019 15:23:02 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 23
+[03-May-2019 15:23:07 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 23
+[03-May-2019 15:23:44 America/New_York] PHP Parse error:  syntax error, unexpected 'hi' (T_STRING), expecting ',' or ';' in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 24
+[03-May-2019 15:24:10 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/nts/public_html/ORF401/Finalproj/addMemberuser.php on line 24

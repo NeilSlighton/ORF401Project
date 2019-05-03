@@ -12,14 +12,14 @@
       </head>
       <body bgcolo="white" text="black">
         <p>Empty Field. Please try again. Redirecting you back.</p> 
-        <meta http-equiv="refresh" content="3; url=isindexSearch.php" />
+        <meta http-equiv="refresh" content="3; url=drivability.php" />
       </body>
     </html>
     ';
 
   } else {
 
-    include ("readDb.php");
+    include ("readDbusers.php");
 
     if ($found == 0) {
 
@@ -30,7 +30,7 @@
         </head>
         <body bgcolor="white" text="black">
           <p>Email not found. Please try again. Redirecting you back.</p>
-          <meta http-equiv="refresh" content="3; url=isindexSearch.php" />
+          <meta http-equiv="refresh" content="3; url=legitlogin.php" />
         </body>
       </html>
       ';
@@ -46,7 +46,7 @@
           </head>
           <body bgcolor="white" text="black">
             <p>Wrong password. Please try again. Redirecting you back.</p>
-            <meta http-equiv="refresh" content="3; url=isindexSearch.php" />
+            <meta http-equiv="refresh" content="3; url=legitlogin.php" />
           </body>
         </html>
         ';
@@ -114,7 +114,7 @@
             
             <br />
 
-            <a href="isindexSearch.php"> Return to Homepage </a>
+            <a href="drivability.php"> Return to Homepage </a>
 
           </center>
         </body>

@@ -36,6 +36,9 @@
     </style>
   </head>
   <body>
+     <td> <a href="legitlogin.php"><b> Login </b></a></td>
+     <br>
+     <td> <a href="registeruser.php"><b> Register </b></a></td>
     <div id="map" height="460px" width="100%"></div>
     <div id="form">
         <form method="post" enctype="multipart/form-data">  
