@@ -20,7 +20,7 @@ $rows = array();
 
 while($row = mysqli_fetch_array($result)) {
 	$data = base64_encode($row["name"]);
-    $rows[] = array("name" => $data, "Longitude" => $row["Longitude"], "Latitude" => $row["Latitude"]);
+    $rows[] = array("name" => $data, "Longitude" => $row["Longitude"], "Latitude" => $row["Latitude"], "Description" => $row["Description"], "DateTime" => $row["DateTime"]);
 }
 
 echo json_encode($rows);
