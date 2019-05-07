@@ -4,7 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Testing Drivability</title>
-    <p>This is the Drivability Map</p>
+    <p align = "center"><font size="24">Welcome to Drivability!</font></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
@@ -27,8 +27,10 @@
     <div id="form">
         <form action = "dbconnect.php" method="post" enctype="multipart/form-data">  
 	         <input type="file" name="hazard" id="hazard" />
+	         <input type="text" name="Description" id="Description"/>
 	         <input type='hidden' name="latitude" id="latitude"/>
-	         <input type = 'hidden' name = "longitude" id = "longitude" />  
+	         <input type ='hidden' name = "longitude" id = "longitude" />
+	         <input type = 'hidden' name="DateTime" id="DateTime" /> 
 	         <br/>  
 	         <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />  
         </form>  
@@ -63,6 +65,7 @@
         });
 
         google.maps.event.addListener(map, 'click', function(event) {
+        	console.log("Clicked map");
           marker = new google.maps.Marker({
             position: event.latLng,
             map: map
@@ -70,11 +73,18 @@
 
 
           google.maps.event.addListener(marker, 'click', function() {
+          	console.log("Clicked marker");
             infowindow.open(map, marker);
             var latitude = this.position.lat();
             var longitude = this.position.lng();
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var DateTime = date + ' ' + time;
+            this.new = true
             $("#longitude").val(longitude);
             $("#latitude").val(latitude);
+            $("#DateTime").val(DateTime);
           });
         });
 
@@ -130,36 +140,43 @@
 
   </script>
   <script>
-      function addMarker(user_lat, user_lng, user_hazard) {
-      	infowindow = new google.maps.InfoWindow({
-          content: document.getElementById('form')
-
-        });
+      function addMarker(user_lat, user_lng, user_hazard, user_des, user_time) {
+      	var infowindow = new google.maps.InfoWindow({});
       	var infowincontent = document.createElement('div');
       	var strong = document.createElement('strong');
-      	strong.textContent = user_lng;
+      	var d = new Date(user_time);
+      	var d1 = new Date();
+
+      	if (Math.abs(d1 - d) < 18000000) {
+      	strong.textContent = "The hazard described is: " + user_des;
       	infowincontent.appendChild(strong);
       	infowincontent.appendChild(document.createElement('br'));
+
+      	var text = document.createElement('text');
+      	text.textContent = "This photo was taken on " + d;
+      	infowincontent.appendChild(text);
       	var img = document.createElement("IMG");
-      	img.setAttribute("src", user_hazard + ".png");
-      	img.setAttribute("width", "100");
-      	img.setAttribute("height", "100");
+      	img.setAttribute("src", "data:image/png;base64, " + user_hazard);
+      	img.setAttribute("width", "300");
+      	img.setAttribute("height", "300");
       	infowincontent.appendChild(img);
       	var point = new google.maps.LatLng(user_lat, user_lng);
       	var marker = new google.maps.Marker({
-
+      		new: false,
       		map: map,
       		position: point,
       	});
 
-      	//img_tag = '<img src="...'
 
       	marker.addListener('dblclick', function() {
-
-      		infowindow.setContent(infowincontent);
-      		infowindow.open(map, marker);
+      		console.log("New node");
+      		if (!this.new) {
+	      		infowindow.setContent(infowincontent);
+	      		infowindow.open(map, marker);
+	      	}
       	});
 
+      }
 
       }
 
@@ -181,23 +198,19 @@
     		success: function(data){
     			var geoInfo = [];
     			$.each(data, function(i, geo) {
-    				geoInfo.push([geo.Latitude, geo.Longitude, geo.name]);
+    				geoInfo.push([geo.Latitude, geo.Longitude, geo.name, geo.Description, geo.DateTime]);
     			});
     	callback(geoInfo);
-    }
-});
-}
+    			}
+			});
+	}
 fetchGeo(function(geoInfo){
 	var i;
 	for (i = 0; i < geoInfo.length; i++) {
-		addMarker(geoInfo[i][0], geoInfo[i][1], geoInfo[i][2]);
+		addMarker(geoInfo[i][0], geoInfo[i][1], geoInfo[i][2], geoInfo[i][3], geoInfo[i][4]);
 	}
 });
     		
-    		//context: document.body
-    	//}).done(function(data) {
-    		//document.write(data.name);
-    	//});
     </script>
 	</body>
 </html>
