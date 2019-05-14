@@ -25,6 +25,10 @@
       $result = mysqli_query($conn, $sql);
 
       if ($result==1) {
+
+            session_start();
+            $_SESSION["email"] = $email;
+
         echo 'success';
         
         
@@ -39,6 +43,8 @@
     }
 
   } else {
+      session_start();
+        $_SESSION["email"] = $email;
     echo 'exists';
   }
 

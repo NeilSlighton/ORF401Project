@@ -15,9 +15,32 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin: 0;
+background-color: #edf1f7;
+
+}
+  .bg { 
+  background-color: #edf1f7;
+  background-image: url("login.png");
+  width: 100%; 
+  background-position: center ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  margin-top: 5%;
+  position: fixed;
+  bottom: 0;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  
+
+  
+}
+
+html {
+    width: 100%;
+    margin: 0;
 }
 
 * {
@@ -26,11 +49,69 @@ body {
 
 /* style the container */
 .container {
+font-family: Tahoma,Verdana,Segoe,sans-serif;
   position: relative;
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px 0 30px 0;
 } 
+
+.outimage {
+    position: relative; 
+    bottom: 100px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 1;
+}
+    
+.content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+.outform {
+        width: 30%;
+        background-color: #f2f2f2;
+        padding: 20px 0 30px 0;
+        position: relative;
+        top: -150px;
+        left: 37%;
+        z-index: 2;
+    }
+    
+.goog {
+    position: relative; 
+	left: 32%;
+    
+}
+
+
+.navbar {
+  overflow: hidden;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #75797c;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 0px 20px;
+  text-decoration: none;
+}
 
 /* style inputs and link buttons */
 input,
@@ -52,31 +133,16 @@ input:hover,
   opacity: 1;
 }
 
-/* add appropriate colors to fb, twitter and google buttons */
-.fb {
-  background-color: #3B5998;
-  color: white;
-}
-
-.twitter {
-  background-color: #55ACEE;
-  color: white;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-}
 
 /* style the submit button */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #134189;
   color: white;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #103672;
 }
 
 /* Two-column layout */
@@ -86,6 +152,7 @@ input[type=submit]:hover {
   margin: auto;
   padding: 0 50px;
   margin-top: 6px;
+  
 }
 
 /* Clear floats after the columns */
@@ -146,29 +213,50 @@ input[type=submit]:hover {
 }
 </style>
 </head>
-
-<body>
-    
-    
-    
-    
-    
-    <div class="container">
-
-       
-        
-        <div class="row">
-        <h2 style="text-align:center">Sign up with Social Media or Manually</h2>
-        <div class="vl">
-        <span class="vl-innertext">or</span>
-        </div>
-        
-        <div class="col">
-
-        
-        
+<body style="overflow:hidden;">
+<div class="container">
+<div class="navbar">
+    <a href="entry.html">Home</a>
+<a href="legitlogin.php">Login</a>
+</div>
+  <div class="bg"> 
+ <div class="outform">
+<form name="new" action="addMemberuser.php" method="post" onsubmit="return checkRequired(fName.value, lName.value, Email.value, Pass.value)">
+    <div class="row">
+      <h2 style="text-align:center">Register</h2>
+      
+<br>
+      <div class="col">
+        <div class="goog">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <script>
+        </div>
+    </div>
+
+
+       <div class="col">
+          <br> 
+        <p id="blanks" style="color:#75797c; text-align: center; font-size: 12px"></p>
+        <p>
+            <input type="text" name="fName" placeholder="First Name*"><br />
+              <input type="text" name="lName" placeholder="Last Name*"><br />
+              <input type="text" name="Email" placeholder="Email*"><br />
+              <input type="password" name="Pass" placeholder="Password*"><br />
+              <input type="submit" value="Sign In"> 
+            </p>
+            
+        </div> 
+
+        </div>
+        </div>
+        </form>
+  </div>
+
+  </div>
+</div>
+
+
+
+ <script>
         function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         $.ajax({
@@ -178,14 +266,15 @@ input[type=submit]:hover {
         success: function(data){
             if (data == 'exists') {
                 
-                alert('account exists, redirecting you')
-                location.href = "http://nts.mycpanel.princeton.edu/ORF401/Finalproj/drivability.php"
+                alert('account exists, redirecting you.')
+                location.href = "http://nts.mycpanel.princeton.edu/ORF401/finalproj2/drivability.php"
             }
             
-            
+       
             else if (data == 'success') {
+   
                 alert('welcome')
-                location.href = "http://nts.mycpanel.princeton.edu/ORF401/Finalproj/drivability.php"
+                location.href = "http://nts.mycpanel.princeton.edu/ORF401/finalproj2/drivability.php"
             }
             
             else {
@@ -201,45 +290,6 @@ input[type=submit]:hover {
 
         </script>
 
-      </div>
-
-    <div class="col">
-        <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
-        </div>
-        <form name="new" action="addMemberuser.php" method="post" onsubmit="return checkRequired(fName.value, lName.value, Email.value, Pass.value)">
-        <p>Please fill out the following fields (Required feilds are marked by *):</p>
-        <p id="blanks" style="color:red;"></p>
-        
-        <label for="fName"> *First Name:</label><input type="text" name="fName" /><br />
-        <label for="lName"> *Last Name: </label><input type="text" name="lName" /><br />
-        <label for="Email"> *Email: </label><input type="text" name ="Email" /><br />
-        <label for="Pass"> *Password: </label><input type="password" name="Pass" />
-
-        
-        <input type="submit" value="Submit" />
-        </form>
-        </div>
-        </div>
-      
-
-      <br />
-          </div>
-
-
-    </div>
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-      <a href="legitlogin.php" style="color:white" class="btn">Already have an account? Sign in</a>
-    </div>
-    <div class="col">
-      <a href="#" style="color:white" class="btn">Forgot password?</a>
-    </div>
-  </div>
-</div>
-
- 
-
 </body>
 </html>
+

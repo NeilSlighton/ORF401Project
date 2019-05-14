@@ -3,6 +3,9 @@
 <html>
 <head>
 
+<?php
+session_start();
+ ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -12,7 +15,31 @@
 <style>
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin: 0;
+background-color: #edf1f7;
+
+}
+  .bg { 
+  background-color: #edf1f7;
+  background-image: url("login.png");
+  width: 100%; 
+  background-position: center ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  margin-top: 0%;
+  position: fixed;
+  bottom: 0;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  
+
+  
+}
+
+html {
+    width: 100%;
+    margin: 0;
 }
 
 * {
@@ -23,9 +50,66 @@ body {
 .container {
   position: relative;
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px 0 30px 0;
 } 
+
+.outimage {
+    position: relative; 
+    bottom: 100px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 1;
+}
+    
+.content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+.outform {
+        width: 30%;
+        background-color: #f2f2f2;
+        padding: 20px 0 30px 0;
+        position: relative;
+        top: -150px;
+        left: 37%;
+        z-index: 2;
+    }
+    
+.goog {
+    position: relative; 
+	left: 32%;
+    
+}
+
+
+.navbar {
+  overflow: hidden;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #75797c;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 0px 20px;
+  text-decoration: none;
+}
 
 /* style inputs and link buttons */
 input,
@@ -47,31 +131,16 @@ input:hover,
   opacity: 1;
 }
 
-/* add appropriate colors to fb, twitter and google buttons */
-.fb {
-  background-color: #3B5998;
-  color: white;
-}
-
-.twitter {
-  background-color: #55ACEE;
-  color: white;
-}
-
-.google {
-  background-color: #dd4b39;
-  color: white;
-}
 
 /* style the submit button */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #134189;
   color: white;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #103672;
 }
 
 /* Two-column layout */
@@ -81,6 +150,7 @@ input[type=submit]:hover {
   margin: auto;
   padding: 0 50px;
   margin-top: 6px;
+  
 }
 
 /* Clear floats after the columns */
@@ -141,54 +211,49 @@ input[type=submit]:hover {
 }
 </style>
 </head>
-<body>
-
-
-
+<body style="overflow:hidden;">
 <div class="container">
+<div class="navbar">
+<a href="entry.html">Home</a>
+<a href="registeruser.php">Register</a>
+</div>
+  <div class="bg">  
+
+ <div class="outform">
   <form action="login.php" method="post">
     <div class="row">
-      <h2 style="text-align:center">Register with Social Media or Manually</h2>
-      <div class="vl">
-        <span class="vl-innertext">or</span>
-      </div>
-
+      <h2 style="text-align:center">Login</h2>
+      
+<br>
       <div class="col">
-
+        <div class="goog">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-      </div>
-
-      <div class="col">
-        <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
         </div>
 
-        
+      </div>
+
+      <div class="col">
+
+            <br>
             <p>
-              <label for="email">Email:</label>
-              <input type="text" name="Email"><br />
-              <label for="pass">Password:</label>
-              <input type="password" name="Pass"><br />
+              <input type="text" name="Email" placeholder="Email"><br />
+              <br>
+              <input type="password" name="Pass" placeholder="Password"><br />
+              <br>
               <input type="submit" value="Sign In"> 
             </p>
           
       </div>
-      
+      </div>
     </div>
   </form>
-</div>
+  </div>
 
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-      <a href="registeruser.php" style="color:white" class="btn">Sign up</a>
-    </div>
-    <div class="col">
-      <a href="#" style="color:white" class="btn">Forgot password?</a>
-    </div>
+
   </div>
 </div>
+
+
 
  <script>
       function onSignIn(googleUser) {
@@ -198,7 +263,7 @@ input[type=submit]:hover {
         url: 'login.php',
         data: {Email: profile.getEmail(), Pass: '123'},
         success: function(data){
-            location.href = "http://nts.mycpanel.princeton.edu/ORF401/Finalproj/drivability.php"
+            location.href = "http://nts.mycpanel.princeton.edu/ORF401/finalproj2/drivability.php"
 
             
         }

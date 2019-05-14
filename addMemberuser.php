@@ -23,61 +23,203 @@
       $result = mysqli_query($conn, $sql);
 
       if ($result==1) {
-        echo '
-      <html>
-        <head>
-          <title> Welcome </title>
-        </head>
-        <body bgcolor="white" text="black">
-          <p>Welcome</p>
-          <meta http-equiv="refresh" content="3; url=drivability.php" />
-        </body>
-      </html>
-      ';
+    session_start();
+    $_SESSION["email"] = $email;
+      echo '
+    <html>
+    <style>
+    body {
+    background-color: #f9fbff;
+      font-family: Tahoma,Verdana,Segoe,sans-serif;
+    }
+    .outimage {
+    position: relative; 
+    bottom: 10px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 0;
+}
+.writing {
+    text-align: center;
+    margin-top: 20%;
+    color: #c1c5cc;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 30px;
+    
+}
+
+
+ 
+</style>
+      <head>
+        <title>Welcome</title>
+      </head>
+      <body>
+    <div class="container">
+     <div class="writing">
+    <p>Welcome! </p>
+    <meta http-equiv="refresh" content="1; url=drivability.php" />
+    </div>
+      <div class = "outimage">
+        <img class="background-image" src="login.png" width="NATURAL WIDTH" height="NATURAL HEIGHT">
+      </div>
+    </div>
+    </body>
+    </html>
+    ';
+  
         
         
       } else {
  			  echo '
-      <html>
-        <head>
-          <title> Something went wrong </title>
-        </head>
-        <body bgcolor="white" text="black">
-          <p> Something went wrong </p>
-          <meta http-equiv="refresh" content="3; url=registeruser.php" />
-        </body>
-      </html>
-      ';
+    <html>
+    <style>
+    body {
+    background-color: #f9fbff;
+      font-family: Tahoma,Verdana,Segoe,sans-serif;
+    }
+    .outimage {
+    position: relative; 
+    bottom: 10px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 0;
+}
+.writing {
+    text-align: center;
+    margin-top: 20%;
+    color: #c1c5cc;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 30px;
+    
+}
+</style>
+      <head>
+        <title>Empty fields</title>
+      </head>
+      <body>
+    <div class="container">
+     <div class="writing">
+    <p>Something went wrong, please try again.</p>
+    <meta http-equiv="refresh" content="1; url=registeruser.php" />
+    </div>
+      <div class = "outimage">
+        <img class="background-image" src="login.png" width="NATURAL WIDTH" height="NATURAL HEIGHT">
+      </div>
+    </div>
+    </body>
+    </html>
+    ';
       }
                
       mysqli_close($conn);
     	
     } else {
        echo '
-      <html>
-        <head>
-          <title> Something went wrong </title>
-        </head>
-        <body bgcolor="white" text="black">
-          <p> Something went wrong </p>
-          <meta http-equiv="refresh" content="3; url=registeruser.php" />
-        </body>
-      </html>
-      ';
+    <html>
+    <style>
+    body {
+    background-color: #f9fbff;
+      font-family: Tahoma,Verdana,Segoe,sans-serif;
+    }
+    .outimage {
+    position: relative; 
+    bottom: 10px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 0;
+}
+.writing {
+    text-align: center;
+    margin-top: 20%;
+    color: #c1c5cc;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 30px;
+    
+}
+</style>
+      <head>
+        <title>Empty fields</title>
+      </head>
+      <body>
+    <div class="container">
+     <div class="writing">
+    <p>Please fill in everything.</p>
+    <meta http-equiv="refresh" content="1; url=registeruser.php" />
+    </div>
+      <div class = "outimage">
+        <img class="background-image" src="login.png" width="NATURAL WIDTH" height="NATURAL HEIGHT">
+      </div>
+    </div>
+    </body>
+    </html>
+    ';
     }
 
   } else {
      echo '
-      <html>
-        <head>
-          <title> That email already exists </title>
-        </head>
-        <body bgcolor="white" text="black">
-          <p> That email already exists </p>
-          <meta http-equiv="refresh" content="3; url=registeruser.php" />
-        </body>
-      </html>
-      ';
+    <html>
+    <style>
+    body {
+    background-color: #f9fbff;
+      font-family: Tahoma,Verdana,Segoe,sans-serif;
+    }
+    .outimage {
+    position: relative; 
+    bottom: 10px;
+    right: 10px;
+}
+
+/* This element is the background image */
+.background-image {
+    width: 105%;
+    height: auto;
+    position: static;
+    z-index: 0;
+}
+.writing {
+    text-align: center;
+    margin-top: 20%;
+    color: #c1c5cc;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 30px;
+    
+}
+</style>
+      <head>
+        <title>Empty fields</title>
+      </head>
+      <body>
+    <div class="container">
+     <div class="writing">
+    <p>That email already exists.</p>
+    <meta http-equiv="refresh" content="1; url=registeruser.php" />
+    </div>
+      <div class = "outimage">
+        <img class="background-image" src="login.png" width="NATURAL WIDTH" height="NATURAL HEIGHT">
+      </div>
+    </div>
+    </body>
+    </html>
+    ';
   }
 
 ?>
